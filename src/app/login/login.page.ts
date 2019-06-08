@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
     this.loginService.loginUser(user['displayName']);
     this.loginForm.reset();
 
-    this.loginService.getUserAccessLevel()
+    this.loginService.getUserAccessLevelSubject()
       .subscribe(res => {
         if (res != 0) {
           this.router.navigate([this.loginService.nextPage]);   // navigate to this page

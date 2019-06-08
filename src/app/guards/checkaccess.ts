@@ -21,11 +21,11 @@ export class CheckAccessService implements CanActivate {
     //console.log(ars);
     //console.log(rss);
 
-    console.log('Current Access Level: ', this.loginService.getUserAccessLevel());
+    console.log('Current Access Level: ', this.loginService.getUserAccessLevelValue());
     console.log('Access Level needed: ', ars.data.accessLevel);
 
     // restrict user access-------------------------------------------------------------
-    let canProceed = this.loginService.getUserAccessLevel() >= ars.data.accessLevel;
+    let canProceed = this.loginService.getUserAccessLevelValue() >= ars.data.accessLevel;
     if (canProceed == false) {
       if (ars.data.accessLevel == 4) {
         this.showAlert('Access Denied', 'You must be an Administrator to view this page');
@@ -43,7 +43,7 @@ export class CheckAccessService implements CanActivate {
     let scheduled = (ars.data.scheduled != undefined) ? ars.data.scheduled : [];
     if (scheduled.length > 0) {
       let dayToday = new Date().getDay();
-      console.log(dayToday);
+      console.log("Today's numeric value is: ", dayToday);
       if (scheduled.indexOf(dayToday) == -1) {
         this.showAlert('Page Not Available', 'This page is only available on these days ' + scheduled.toString() + '. Today is ' + dayToday.toString());
         this.router.navigate(['']);        // go to the home page

@@ -27,9 +27,8 @@ export class LoginService {
     this.resetUserAccess();
 
     // check if the name is in our list of valid users
-    console.log(user);
-    console.log(this.validUsers.indexOf(user));
-    console.log(this.validUsers);
+    console.log('User name passed for login: ', user);
+    console.log('Valid users: ', this.validUsers);
 
     if (this.validUsers.indexOf(user) == -1) {
       this.showAlert('Invalid Name', 'Hint: Try Admin, Adam, Anne, Barbra or Brian');
@@ -46,7 +45,11 @@ export class LoginService {
 
   } 
 
-  getUserAccessLevel() {
+  getUserAccessLevelValue() {
+    return this.userAccessLevel.value;  // return the value directly
+  }
+
+  getUserAccessLevelSubject() {
     return this.userAccessLevel;  // return the private observable so we can subscribe to it
   }
 
@@ -54,9 +57,6 @@ export class LoginService {
     this.userAccessLevel.next(0);
     this.userDisplayName = '';
   }
-
-
-
 
   async showAlert(header: string, message: string) {
     const alert = await this.alertController.create({

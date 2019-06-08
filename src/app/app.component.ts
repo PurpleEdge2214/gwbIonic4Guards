@@ -48,7 +48,7 @@ export class AppComponent {
     private router: Router,
   ) {
     this.initializeApp();
-    this.loginService.getUserAccessLevel()
+    this.loginService.getUserAccessLevelSubject()
       .subscribe((res) => {
         console.log('appComponent - userAccessLevel = ', res);
         this.isAdmin = (res == 4) ? true : false;
