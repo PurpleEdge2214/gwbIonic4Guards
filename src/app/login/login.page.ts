@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { LoginService } from '../login.service';
 
@@ -14,17 +14,22 @@ export class LoginPage implements OnInit {
   private user: string;
   private sub: any;
   public loginForm: FormGroup;
+  private nextPage: string;
 
   constructor(
     public formBuilder: FormBuilder,
     private loginService: LoginService,
     private router: Router,
+    private route: ActivatedRoute,
   ) {
 
     //this.loginService.resetUserAccess();      // logout existing user when page is accessed
     this.loginForm = this.formBuilder.group({
       displayName: ['', Validators.required],
     });
+
+    this.nextPage = (this.route.snapshot.paramMap.get('nextPage') == null) ? '' : this.route.snapshot.paramMap.get('nextPage');
+    console.log('nextPage: ', this.nextPage);
 
   }
 
@@ -42,8 +47,7 @@ export class LoginPage implements OnInit {
     this.loginService.getUserAccessLevelSubject()
       .subscribe(res => {
         if (res != 0) {
-          this.router.navigate([this.loginService.nextPage]);   // navigate to this page
-          this.loginService.nextPage = 'home';                  // reset the next page after login back to home
+          this.router.navigate([this.nextPage]);   // navigate to this page
         }
       })
 

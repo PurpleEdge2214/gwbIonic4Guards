@@ -32,8 +32,7 @@ export class CheckAccessService implements CanActivate {
       } else {
         this.showAlert('Please Login', 'You must be logged in to view this page');
       }
-      this.loginService.nextPage = rss.url;   // save the next page after login to a LoginService variable
-      this.router.navigate(['login']);        // go to the login page
+      this.router.navigate(['/login', {'nextPage': rss.url}]);        // go to the login page, passing the next page to go to
       console.log('Page to go to after login successful: ', rss.url);
       return false;
     }

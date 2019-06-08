@@ -14,8 +14,6 @@ export class LoginService {
 
   private validUsers = ['Admin', 'Adam', 'Anne', 'Barbra', 'Brian']
 
-  public nextPage: string = 'home'; // where to go after login
-
   constructor(
     private router: Router,
     private alertController: AlertController,
@@ -35,13 +33,14 @@ export class LoginService {
       return;
     }
 
+    this.userDisplayName = user;
+
+    // resetting the BehaviourSubject will trigger the observer
     if (user === 'Admin') {
       this.userAccessLevel.next(4);
     } else {
       this.userAccessLevel.next(1);  // they are a logged in user
     }
-
-    this.userDisplayName = user;
 
   } 
 
