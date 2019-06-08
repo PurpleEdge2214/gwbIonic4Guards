@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-xl="4" size-lg="6" size-md="9" size-xs="12">
+        <ion-card>
+          <ion-item color="primary" text-center>
+            <ion-label class="header">Log Me In!</ion-label>
+          </ion-item>
+          <ion-card-content>
+  
+            <form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="f.valid && onSignIn(loginForm.value)">
+              <ion-item>
+                <ion-label position="floating">Your Name</ion-label>
+                <ion-input [formControl]="loginForm.controls['displayName']" type="text"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container>
+                  <div class="error-message"
+                    *ngIf="f.submitted && loginForm.get('displayName').hasError('required')">
+                    <ion-icon name="information-circle-outline"></ion-icon> Display Name is required
+                  </div>
+                </ng-container>
+              </div>
+  
+  
+              <ion-row>
+                <ion-col text-center>
+                  <ion-button color="tertiary" expand="full" type="submit">Log In
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+  
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
