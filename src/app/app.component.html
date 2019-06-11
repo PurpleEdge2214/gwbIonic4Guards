@@ -9,8 +9,10 @@
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [disabled]='p.adminOnly && !isAdmin' >
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [disabled]='p.adminOnly && !isAdmin'>
+                <ion-icon *ngIf="(p.adminOnly && !isAdmin)" slot="start" [name]="p.icon"></ion-icon>
+                <ion-icon *ngIf="(p.adminOnly && isAdmin)" slot="start" [name]="p.iconAdmin" color="primary"></ion-icon>
+                <ion-icon *ngIf="(!p.adminOnly)" slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
               </ion-label>
@@ -19,8 +21,8 @@
 
           <ion-menu-toggle auto-hide="false" [hidden]='!hideLogout'>
             <ion-item [routerDirection]="'root'" routerLink='/login'>
-            <ion-icon slot="start" name="log-in" ></ion-icon>
-            <ion-label>
+              <ion-icon slot="start" name="log-in"></ion-icon>
+              <ion-label>
                 Login
               </ion-label>
             </ion-item>

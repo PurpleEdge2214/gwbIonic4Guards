@@ -31,6 +31,7 @@ export class AppComponent {
       title: 'Admin Only',
       url: '/adminonly',
       icon: 'sad',
+      iconAdmin: 'happy',
       adminOnly: true
     },
     {

@@ -10,35 +10,49 @@
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/comformarkLogoIonic.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Get Started</ion-card-subtitle>
+      <ion-card-title>Welcome to Ionic</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Now that your app has been created, you'll want to start building out features and components. Check out some
+        of the resources below for next steps.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeXl="6">
+        <ion-list lines="none">
+          <ion-list-header>
+            <ion-label>About this app</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-icon slot="start" color="medium" name="book"></ion-icon>
+            <ion-label text-wrap>This app was created by Comformark Pty Ltd to demonstrate Guards and BehaviourSubjects
+              in
+              Ionic as a simple means of controlling access to menus and pages in an Ionic 4 application.</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" color="medium" name="build"></ion-icon>
+            <ion-label text-wrap>There are three login access levels, 0, 1 and 4. "Adam", "Anne" etc have access level 1, "Admin" has access level 4. These values are assigned, on login, to a BehaviourSubject which is subscribed to from the app.component and the menu is updated according to the access level. The "List" page is only visible to logged-in users.</ion-label>
+          </ion-item>
+          <ion-item href="./adminonly/">
+              <ion-icon slot="start" color="warning" name="lock"></ion-icon>
+              <ion-label text-wrap color="tertiary">The "/adminonly/" page can only be access if logged in as "Admin" - even without using the menu.</ion-label>
+            </ion-item>
+            <ion-item>
+            <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+            <ion-label text-wrap>An Angular Guard function controls access to pages via values set in the app-routing.module for each route. The Guard function uses the values contained in the BehaviouSubject, and also uses a simple function to restrict access based on the day of the week.</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
+            <ion-label text-wrap>The app also demonstrates how to use navigation parameters, so that after login the user is directed to whichever page they tried to access before login.</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

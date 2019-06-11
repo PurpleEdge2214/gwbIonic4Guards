@@ -18,8 +18,8 @@ export class CheckAccessService implements CanActivate {
   ) { }
 
   canActivate(ars: ActivatedRouteSnapshot, rss: RouterStateSnapshot): boolean {
-    //console.log(ars);
-    //console.log(rss);
+    console.log(ars);
+    console.log(rss);
 
     console.log('Current Access Level: ', this.loginService.getUserAccessLevelValue());
     console.log('Access Level needed: ', ars.data.accessLevel);
