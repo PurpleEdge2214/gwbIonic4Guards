@@ -20,7 +20,7 @@ export class ScheduledPage implements OnInit {
     this.scheduled = (this.route.snapshot.data['scheduled'] != undefined) ? this.route.snapshot.data['scheduled'] : [];
     this.dayToday = new Date().getDay().toString();
     this.scheduledMessage = 'This page is only displayed when the day is in the array: ' + this.scheduled.toString() + '. Today is ' + this.dayToday + '.';
-
+    console.log(this.scheduledMessage);
   }
 
   ngOnInit() {

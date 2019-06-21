@@ -5,15 +5,6 @@ import { CheckAccessService } from './guards/checkaccess';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
     path: 'list',
     canActivate: [CheckAccessService],
     data: { 'accessLevel': '1' },
@@ -21,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'adminonly',
-    canActivate: [CheckAccessService],
+    canLoad: [CheckAccessService],
     data: { 'accessLevel': '4' },
     loadChildren: './adminonly/adminonly.module#AdminonlyPageModule',
   },
@@ -35,6 +26,15 @@ const routes: Routes = [
     path:
       'login',
     loadChildren: './login/login.module#LoginPageModule'
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomePageModule'
   },
   {
     path: '*',

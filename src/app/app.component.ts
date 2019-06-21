@@ -4,7 +4,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 
-import { LoginService } from './login.service';
+import { LoginService } from './guards/login.service';
 
 @Component({
   selector: 'app-root',
@@ -48,7 +48,9 @@ export class AppComponent {
     private loginService: LoginService,
     private router: Router,
   ) {
+
     this.initializeApp();
+
     this.loginService.getUserAccessLevelSubject()
       .subscribe((res) => {
         console.log('appComponent - userAccessLevel = ', res);
@@ -56,6 +58,7 @@ export class AppComponent {
         this.hideLogout = (res == 0) ? true : false;
         this.userDisplayName = this.loginService.userDisplayName;
       })
+      
   }
 
   initializeApp() {
