@@ -1,6 +1,8 @@
 # gwbionic4guards
 Ionic 4 app demonstrating the use of a Guard
 
+<img src="https://www.comformark.com.new/data/uploads/ionicguards_01.jpg" alt="Ionic 4 guards example app" title="ionic 4 guards example app"/>
+
 This app was created by Comformark Pty Ltd to demonstrate Guards and BehaviourSubjects in Ionic as a simple means of controlling access to menus and pages in an Ionic 4 application.
 
 There are three login access levels, 0, 1 and 4. "Adam", "Anne" etc have access level 1, "Admin" has access level 4. 
