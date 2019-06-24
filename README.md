@@ -1,7 +1,7 @@
 # gwbionic4guards
 Ionic 4 app demonstrating the use of a Guard
 
-<img src="preview/ionicguards_01.jpg" alt="Preview of gwb ionic 4 guards app" title="Preview of gwb ionic 4 guards app" width="480" />
+<img src="preview/ionicguards_01.jpg" alt="Preview of gwb ionic 4 guards app" title="Preview of gwb ionic 4 guards app" width="640" />
 
 This app was created by Comformark Pty Ltd to demonstrate Guards and BehaviourSubjects in Ionic as a simple means of controlling access to menus and pages in an Ionic 4 application.
 
