@@ -14,3 +14,5 @@ The "List" page is only visible to logged-in users.
 An Angular Guard function controls access to pages via values set in the app-routing.module for each route. The Guard function uses the values contained in the BehaviourSubject, and also uses a simple function to restrict access based on the day of the week.
 
 The app also demonstrates how to use navigation parameters, so that after login the user is directed to whichever page they tried to access before login.
+
+A tutorial describing the app functionality is available at the <a href="https://www.comformark.com.au/news/post/ionic-4-guards-and-behavioursubjects-to-control-access-to-your-app" target="_new" alt="Tutorial for gwb Ionic 4 Guards">Comformark Pty Ltd website</a>
